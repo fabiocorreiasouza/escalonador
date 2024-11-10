@@ -15,16 +15,23 @@ int main(int argc, char *argv[]) {
     Processo* processos = NULL;
     int num_processos = ler_processos("processos.txt", &processos);
     
+    // Verifica se pelo menos um processo foi carregado
     if (num_processos == 0) {
         printf("Nenhum processo carregado. Encerrando...\n");
         return 1;
     }
 
-    /* CODIGO AQUI */
+    // Enfileira todos os processos na fila de alta prioridade (inicialmente, prioridade = 0)
+    for (int i = 0; i < num_processos; i++) {
+        inserir(&filas[0], processos[i]);
+    }
+    
+    /* INCLUIR CODIGO AQUI */
 
   return 0;
 }
 
+// Função para ler os processos de um arquivo txt
 int ler_processos(const char* nome_arquivo, Processo** processos) {
     FILE* arquivo = fopen(nome_arquivo, "r");
     if (arquivo == NULL) {
