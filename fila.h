@@ -6,7 +6,7 @@
     typedef struct Processo {
         int id;
         int tempo_chegada;
-        int burst_time;
+        int tempo_servico;
         int tempo_restante;
         int prioridade;
     } Processo;
